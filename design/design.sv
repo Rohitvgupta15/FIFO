@@ -37,8 +37,8 @@ module fifo #(DEPTH = 8)
     end
   end
 
-  assign full = (count == 8);
-  assign almost_full = (count == 7 && wr_en);
+  assign full = (count == DEPTH);
+  assign almost_full = (count == DEPTH - 1 && wr_en);
   assign empty = (count == 0);
 
 endmodule
