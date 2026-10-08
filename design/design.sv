@@ -13,7 +13,7 @@ module fifo #(DEPTH = 8)
 
   reg [7:0] fifo_mem [DEPTH-1:0];     // 8-depth FIFO
   reg [$clog2(DEPTH) - 1:0] wr_ptr, rd_ptr;     // 3-bit pointers for 8 locations
-  reg [3:0] count;              // to track number of items in FIFO
+  reg [$clog2(DEPTH+1)-1:0] count;              // to track number of items in FIFO
 
   // Write logic
   always @(posedge clk or negedge rstn) begin
