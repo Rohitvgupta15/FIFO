@@ -22,7 +22,7 @@ class test;
        	begin
 	 
       wr = new(env.gen2drv_m,env.gen2scb_m,env.gen2drv_e);
-      wr.no_of_trans = 10;
+      wr.no_of_trans = 1000;
       total_testcase = wr.no_of_trans;
 	  env.gen = wr;
 	end
@@ -30,7 +30,7 @@ class test;
      if ($test$plusargs("rw"))
        	begin
       rw = new(env.gen2drv_m,env.gen2scb_m,env.gen2drv_e);
-      rw.no_of_trans = 6;
+      rw.no_of_trans = 1000;
       total_testcase = rw.no_of_trans;
 	  env.gen = rw;
 	end

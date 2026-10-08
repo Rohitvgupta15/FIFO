@@ -1,4 +1,5 @@
-`include "package.sv"
+`include "testbench_environment/package.sv"
+
 
 module test;
   bit clk,rst;
@@ -31,7 +32,11 @@ module test;
     test_h.build_and_run();
     repeat (13 * ((test_h.wr != null) ? test_h.wr.no_of_trans : test_h.rw.no_of_trans)) 
       @(posedge clk);
-	test_h.print_report;
+      #10;
+        rst = 0;
+      #10;
+      rst = 1;
+	    test_h.print_report;
     $finish;     
   end
   endmodule
